@@ -6,11 +6,12 @@ import { connect } from 'react-redux';
 import { userActions } from '../../actions';
 import { alertActions } from '../../actions';
 import { history } from '../../helpers';
-import { Button } from './Button';
+import classes from '../../styles/components/button.scss';
 
 class Header extends React.Component {
     constructor(props) {
         super(props);
+        console.log ('classes', classes);
 
         const { dispatch } = this.props;
         history.listen((location, action) => {
@@ -28,8 +29,8 @@ class Header extends React.Component {
                     </div>
                     <Router history={history}>
                     <div className="col-md-6 text-right">
-                        <Link to="/login" className="btn btn-link"> <input type="button" className="btn" value="Log in"/></Link>
-                        <Link to="/register" className="btn btn-link"><input type="button" className="btn" value="Register"/></Link>  
+                        <Link to="/login" className="btn"> <input type="button" className={`${classes.locals.btnLogin} btn`} value="Log in"/></Link>
+                        <Link to="/register" className="btn"><input type="button" className="btn" value="Register"/></Link>  
                     </div>
                     </Router>
                 </div>

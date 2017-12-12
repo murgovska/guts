@@ -6,6 +6,7 @@ import { history } from '../../helpers';
 import { alertActions } from '../../actions';
 import { Header } from '../../components/Header';
 import { PrivateRoute } from '../../components/PrivateRoute';
+import { HomeContent } from '../../components/HomeContent';
 import { CasinoContent } from '../../components/CasinoContent';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
@@ -29,6 +30,7 @@ class App extends React.Component {
             <Router history={history}>
             <div className="row">
                 <PrivateRoute exact path="/casino" component={ CasinoContent } />
+                <Route exact path="/" component={ HomeContent } />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/register" component={RegisterPage} />
             </div>

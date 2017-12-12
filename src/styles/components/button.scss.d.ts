@@ -1,6 +1,6 @@
 export interface IButtonScss {
-  'button-submit': string;
-  'btn-login': string;
+  'btnSubmit': string;
+  'btnLogin': string;
 }
 
 export const locals: IButtonScss;

@@ -14,10 +14,10 @@ $darkBlue: #173e43;
     }
 }
 
-.button-submit {
+.btnSubmit {
     @include button-gig ($lightBlue, $darkBlue, $gray);
 }
 
-.btn-login {
+.btnLogin {
     @include button-gig ($lightBlue, $darkBlue, $gray);
 }
