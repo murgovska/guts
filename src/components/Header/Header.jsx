@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 import { userActions } from '../../actions';
 import { alertActions } from '../../actions';
 import { history } from '../../helpers';
-import classes from '../../styles/components/button.scss';
+// import classes from '../../styles/components/button.scss';
 
 class Header extends React.Component {
     constructor(props) {
         super(props);
-        console.log ('classes', classes);
+       // console.log ('classes', classes);
 
         const { dispatch } = this.props;
         history.listen((location, action) => {
@@ -23,9 +23,9 @@ class Header extends React.Component {
     render() {
         return (
             <div className="header">
-                <div className="col-md-12">
+                <div className="row">
                     <div className="col-md-6">
-                        GUTS
+                        <label className="guts">GUTS</label>
                     </div>
                     <Router history={history}>
                     <div className="col-md-6 text-right">

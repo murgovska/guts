@@ -1,21 +1,22 @@
 @import '../variables/colors.scss';
 
-@mixin button-gig ($background, $color, $backgroundHover) {
+@mixin button-gig ($background, $color, $backgroundHover, $colorHover) {
     background-color: $background;
     color: $color;
     width: 150px;
     font-size: 1em;
     border-radius: 0;
-    margin: 5px;
+    margin-left: 5px;
     &:hover {
         background-color: $backgroundHover;
+        color: $colorHover;
     }
 }
 
 .btnSubmit {
-    @include button-gig ($lightBlue, $darkBlue, $gray);
+    @include button-gig ($lightBlue, $darkBlue, $darkBlue, $lightBlue);
 }
 
 .btnLogin {
-    @include button-gig ($lightBlue, $darkBlue, $gray);
+    @include button-gig ($lightBlue, $darkBlue, $darkBlue, $lightBlue);
 }
