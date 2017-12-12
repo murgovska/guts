@@ -1,0 +1,15 @@
+
+.header {
+    background-color: $yellow;
+    padding: 10px 20px;
+
+    .guts {
+        font-weight: 600;
+        font-size: 3em;
+        color: $lightBlue;
+        text-shadow: 1px 1px 5px $darkBlue;
+        letter-spacing: 2.5px;
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-15deg);
+    }
+}

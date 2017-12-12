@@ -26,7 +26,7 @@ class App extends React.Component {
     render() {
         const { alert } = this.props;
         return (
-            <div className="container-fluid">
+            <div>
             <Header />
             <Router history={history}>
             <div className="row">
