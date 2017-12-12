@@ -15,9 +15,9 @@
 }
 
 .btnRegister {
-    @include button-gig ($rose, $jewel, $jewel, $topaz);
+    @include button-gig ($rose, $jewel, $jewel, $rose);
 }
 
 .btnLogin {
-    @include button-gig ($rose, $jewel, $jewel, $topaz);
+    @include button-gig ($rose, $jewel, $jewel, $rose);
 }
