@@ -29,8 +29,8 @@ class Header extends React.Component {
                     </div>
                     <Router history={history}>
                     <div className="col-md-6 text-right">
-                        <Link to="/login" className="btn"> <input type="button" className={`${classes.btnLogin} btn`} value="Log in"/></Link>
-                        <Link to="/register" className="btn"><input type="button" className="btn" value="Register"/></Link>  
+                        <Link to="/login"> <input type="button" className="btn btnLogin" value="Log in"/></Link>
+                        <Link to="/register"><input type="button" className="btn btnSubmit" value="Register"/></Link>  
                     </div>
                     </Router>
                 </div>

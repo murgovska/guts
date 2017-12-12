@@ -1,5 +1,6 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: './src/index.jsx',
@@ -20,21 +21,27 @@ module.exports = {
                     presets: ['react', 'es2015', 'stage-3']
                 }
             },
-            // { test: /\.css$/, loader: 'typings-for-css-modules-loader?modules' },
+            // { test: /\.css$/, loader: 'css-loader' },
             // { test: /\.scss$/, loader: 'typings-for-css-modules-loader?modules&sass' },
             {
-            test: /\.scss$/,
-            use: [{
-                loader: "css-loader" // translates CSS into CommonJS
+                test: /\.(scss|css)$/,
+                loader: ExtractTextPlugin.extract('css-loader!sass-loader')
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+                loader: 'url-loader?limit=10000',
             }, {
-                loader: "sass-loader" // compiles Sass to CSS
+                test: /\.(eot|ttf|wav|mp3)$/,
+                loader: 'file-loader',
             }]
-        }]
     },
     plugins: [new HtmlWebpackPlugin({
         template: './src/index.html',
         filename: 'index.html',
         inject: 'body'
+    }),
+    new ExtractTextPlugin('dist/styles/main.css', {
+        allChunks: true
     })],
     devServer: {
         historyApiFallback: true
