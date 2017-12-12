@@ -20,9 +20,16 @@ module.exports = {
                     presets: ['react', 'es2015', 'stage-3']
                 }
             },
-            { test: /\.css$/, loader: 'typings-for-css-modules-loader?modules' },
-            { test: /\.scss$/, loader: 'typings-for-css-modules-loader?modules&sass' }
-        ]
+            // { test: /\.css$/, loader: 'typings-for-css-modules-loader?modules' },
+            // { test: /\.scss$/, loader: 'typings-for-css-modules-loader?modules&sass' },
+            {
+            test: /\.scss$/,
+            use: [{
+                loader: "css-loader" // translates CSS into CommonJS
+            }, {
+                loader: "sass-loader" // compiles Sass to CSS
+            }]
+        }]
     },
     plugins: [new HtmlWebpackPlugin({
         template: './src/index.html',
