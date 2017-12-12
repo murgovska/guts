@@ -2,13 +2,15 @@ import { userConstants } from '../constants';
 import { userService } from '../services';
 import { alertActions } from './';
 import { history } from '../helpers';
+import { error } from 'util';
 
 export const userActions = {
     login,
     logout,
     register,
     getAll,
-    delete: _delete
+    delete: _delete,
+    update
 };
 
 function login(username, password) {
@@ -96,4 +98,20 @@ function _delete(id) {
     function request(id) { return { type: userConstants.DELETE_REQUEST, id } }
     function success(id) { return { type: userConstants.DELETE_SUCCESS, id } }
     function failure(id, error) { return { type: userConstants.DELETE_FAILURE, id, error } }
+}
+
+function update(user) {
+    return dispatch => {
+        dispatch(request(user));
+
+        userService.update(user).then((user)=>{
+            dispatch(success(user));
+        }, (error)=>{
+            dispatch(failure(error));
+        });
+    }
+
+    function request(user) { return { type: userConstants.UPDATE_REQUEST, user } }
+    function success(user) { return { type: userConstants.UPDATE_SUCCESS, user } }
+    function failure(error) { return { type: userConstants.UPDATE_FAILURE, error } }
 }

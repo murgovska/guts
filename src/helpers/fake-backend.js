@@ -120,6 +120,30 @@ window.fetch = function (url, opts) {
                 return;
             }
 
+            if(url.match(/\/users\/\d+$/) && opts.method === 'PUT') {
+                if (opts.headers && opts.headers.Authorization === 'Bearer fake-jwt-token') {
+                    let urlParts = url.split('/');
+                    let id = parseInt(urlParts[urlParts.length - 1]);
+                    let newUserData = JSON.parse(opts.body);
+
+                    for (let i = 0; i < users.length; i++) {
+                        if (users[i].id === id) {
+                            users[i].username = newUserData.username;
+                        }
+                    }
+
+                    localStorage.setItem('users', JSON.stringify(users));
+                    localStorage.setItem('user', JSON.stringify(newUserData));
+
+                    // respond 200 OK
+                    resolve({ ok: true, json: () => newUserData });
+                } else {
+                    reject('Unauthorised');
+                }
+
+                return;
+            }
+
             // pass through any requests not handled above
             realFetch(url, opts).then(response => resolve(response));
 
