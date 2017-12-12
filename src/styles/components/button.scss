@@ -1,0 +1,23 @@
+$gray: #dddfd4;
+$yellow: #fae596;
+$lightBlue: #3fb0ac;
+$darkBlue: #173e43;
+
+@mixin button-gig ($background, $color, $backgroundHover) {
+    background-color: $background;
+    color: $color;
+    width: 150px;
+    font-size: 1em;
+    border-radius: 0;
+    &:hover {
+        background-color: $backgroundHover;
+    }
+}
+
+.button-submit {
+    @include button-gig ($lightBlue, $darkBlue, $gray);
+}
+
+.btn-login {
+    @include button-gig ($lightBlue, $darkBlue, $gray);
+}

@@ -20,10 +20,8 @@ module.exports = {
                     presets: ['react', 'es2015', 'stage-3']
                 }
             },
-            {
-                test: /\.scss$/,
-                loaders: ['style', 'css', 'sass']
-            }
+            { test: /\.css$/, loader: 'typings-for-css-modules-loader?modules' },
+            { test: /\.scss$/, loader: 'typings-for-css-modules-loader?modules&sass' }
         ]
     },
     plugins: [new HtmlWebpackPlugin({

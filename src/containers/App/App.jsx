@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 
 import { history } from '../../helpers';
 import { alertActions } from '../../actions';
+import { Header } from '../../components/Header';
+import { PrivateRoute } from '../../components/PrivateRoute';
+import { CasinoContent } from '../../components/CasinoContent';
+import { LoginPage } from '../LoginPage';
+import { RegisterPage } from '../RegisterPage';
 
 class App extends React.Component {
     constructor(props) {
@@ -20,7 +25,14 @@ class App extends React.Component {
         const { alert } = this.props;
         return (
             <div className="container-fluid">
-            App
+            <Header />
+            <Router history={history}>
+            <div className="row">
+                <PrivateRoute exact path="/casino" component={ CasinoContent } />
+                <Route path="/login" component={LoginPage} />
+                <Route path="/register" component={RegisterPage} />
+            </div>
+            </Router>
             </div>
         );
     }
