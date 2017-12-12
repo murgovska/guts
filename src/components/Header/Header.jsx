@@ -30,7 +30,7 @@ class Header extends React.Component {
                     <Router history={history}>
                     <div className="col-md-6 text-right">
                         <Link to="/login"> <input type="button" className="btn btnLogin" value="Log in"/></Link>
-                        <Link to="/register"><input type="button" className="btn btnSubmit" value="Register"/></Link>  
+                        <Link to="/register"><input type="button" className="btn btnRegister" value="Register"/></Link>  
                     </div>
                     </Router>
                 </div>
