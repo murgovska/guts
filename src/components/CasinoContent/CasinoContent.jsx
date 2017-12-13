@@ -13,7 +13,7 @@ class CasinoContent extends React.Component {
     constructor(props) {
         super(props);
         const { dispatch } = this.props;
-        dispatch(gameActions.getGames());
+        // dispatch(gameActions.getGames());
     }
 
     render() {
@@ -28,14 +28,16 @@ class CasinoContent extends React.Component {
                 <div>
                     <Categories />
                     <div className="col-md-12 games">
-                        {games}
+                        { games }
                     </div>
                 </div>
               );
         }
         else {
             return (
-                null
+                <div>
+                    <Categories />
+                </div>
             )
         }
     }

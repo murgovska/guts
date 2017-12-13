@@ -12,13 +12,14 @@ class Categories extends React.Component {
         super(props);
         const { dispatch } = this.props;
         dispatch(categoryActions.getCategories());
+        console.log (this.state, 'State in categories, ***')
     }
 
     render() {
         if (this.props.state['categories'].items !== undefined) {
             var categories = this.props.state['categories'].items.map(function(item) {
                 return (
-                    <FontAwesome name={item.icon} className="categoryIcon"/>
+                    <FontAwesome name={item.icon} className="categoryIcon" key={item.categoryId}/>
                 );
               });
               return (

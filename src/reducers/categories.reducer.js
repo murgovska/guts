@@ -8,7 +8,8 @@ export function categories(state = {}, action) {
       };
     case categoryConstants.GET_ALL_CATEGORIES_SUCCESS:
       return {
-        items: action.categories
+        items: action.categories,
+        selectedCategory: 'allCategories'
       };
     case categoryConstants.GET_ALL_CATEGORIES_FAILURE:
       return {
