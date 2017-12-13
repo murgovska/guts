@@ -11,6 +11,11 @@
         letter-spacing: 2.5px;
         -webkit-transform: rotate(-15deg);
         transform: rotate(-15deg);
+
+        a {
+            text-decoration: none;
+            color: $topaz;
+        }
     }
 
     .username{
