@@ -1,15 +1,20 @@
 
 .header {
-    background-color: $topaz;
+    background-color: $amethist;
     padding: 10px 20px;
 
     .guts {
         font-weight: 600;
         font-size: 3em;
-        color: $rose;
-        text-shadow: 2.5px 2.5px 5px $jewel;
+        color: $topaz;
+        text-shadow: 2.5px 2.5px 7.5px $jewel;
         letter-spacing: 2.5px;
-        -webkit-transform: rotate(-90deg);
+        -webkit-transform: rotate(-15deg);
         transform: rotate(-15deg);
+    }
+
+    .username{
+        color: $topaz;
+        padding: 5px;
     }
 }

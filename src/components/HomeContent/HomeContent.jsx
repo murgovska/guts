@@ -4,21 +4,22 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { userActions } from '../../actions';
+import { gameActions } from '../../actions';
 import { alertActions } from '../../actions';
 import { history } from '../../helpers';
-
+import { Game } from '../Games';
 
 class HomeContent extends React.Component {
+
     constructor(props) {
         super(props);
-        console.log ('Props - ', props);
     }
+
+    
 
     render() {
         return (
-            <div className="container">
-                User not logged in default content
-            </div>
+            <div>Welcome Offer</div>
         );
     }
 }

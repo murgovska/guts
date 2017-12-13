@@ -6,13 +6,10 @@ import { connect } from 'react-redux';
 import { userActions } from '../../actions';
 import { alertActions } from '../../actions';
 import { history } from '../../helpers';
-// import classes from '../../styles/components/button.scss';
 
 class Header extends React.Component {
     constructor(props) {
         super(props);
-       // console.log ('classes', classes);
-
         const { dispatch } = this.props;
         history.listen((location, action) => {
             // clear alert on location change
@@ -26,18 +23,17 @@ class Header extends React.Component {
         return (
             <div className="header">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6 col-sm-4 col-xs-12">
                         <label className="guts">GUTS</label>
                     </div>
                     <Router history={history}>
-
-                        <div className="col-md-6 text-right">
-                            {loggedIn && <Link to="/login"><input type="button" className="btn btnSubmit" value="Logout" /></Link>}
-                            {user && user.username && <span>Hello {user.username}</span>}
-                            <Link to="/casino"><input type="button" className="btn btnSubmit" value="Game browser" /></Link>
+                        <div className="col-md-6 text-right col-sm-8 col-xs-12">
+                            {user && user.username && <span className="username">Welcome,  {user.username}!</span>}
+                            <Link to="/casino"><input type="button" className="btn btnGameBrowser" value="Game browser" /></Link>
                             {!loggedIn && <Link to="/login"> <input type="button" className="btn btnLogin" value="Log in" /></Link>}
                             {!loggedIn && <Link to="/register"><input type="button" className="btn btnRegister" value="Register" /></Link>}
                             {loggedIn && <Link to="/settings"> <input type="button" className="btn btnRegister" value="Settings" /></Link>}
+                            {loggedIn && <Link to="/login"><input type="button" className="btn btnLogout" value="Logout" /></Link>}
                         </div>
                     </Router>
                 </div>

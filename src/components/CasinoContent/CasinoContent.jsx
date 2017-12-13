@@ -3,21 +3,36 @@ import { Router, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { gameActions } from '../../actions';
+import { alertActions } from '../../actions';
+import { Game } from '../Games';
+
+
 class CasinoContent extends React.Component {
     constructor(props) {
         super(props);
+        const { dispatch } = this.props;
+        dispatch(gameActions.getAllGames());
     }
 
     render() {
-        return (
-            <div className="content">
-                <div className="col-md-12">
-                    <div className="col-md-6">
-                        Casino content
-                    </div>
+        if (this.props.state['games'].items !== undefined) {
+            var games = this.props.state['games'].items.map(function(item) {
+                return (
+                  <Game key={item.gameId} item={item}/>
+                );
+              });
+              return (
+                <div className="col-md-12 games">
+                    {games}
                 </div>
-            </div>
-        );
+              );
+        }
+        else {
+            return (
+                null
+            )
+        }
     }
 }
 
