@@ -15,17 +15,24 @@ class Header extends React.Component {
             // clear alert on location change
             dispatch(alertActions.clear());
         });
+
+        this.logout = this.logout.bind(this);
+    }
+
+    logout() {
+        this.props.dispatch(userActions.logout());
     }
 
     render() {
-        console.log(this.props);
         const { user, loggedIn } = this.props;
         return (
             <div className="header">
                 <div className="row">
-                    <div className="col-md-6 col-sm-4 col-xs-12">
-                        <label className="guts">GUTS</label>
-                    </div>
+                    <Router history={history}>
+                        <div className="col-md-6 col-sm-4 col-xs-12">
+                            <label className="guts"><Link to="/">GUTS</Link></label>
+                        </div>
+                    </Router>
                     <Router history={history}>
                         <div className="col-md-6 text-right col-sm-8 col-xs-12">
                             {user && user.username && <span className="username">Welcome,  {user.username}!</span>}
@@ -33,7 +40,7 @@ class Header extends React.Component {
                             {!loggedIn && <Link to="/login"> <input type="button" className="btn btnLogin" value="Log in" /></Link>}
                             {!loggedIn && <Link to="/register"><input type="button" className="btn btnRegister" value="Register" /></Link>}
                             {loggedIn && <Link to="/settings"> <input type="button" className="btn btnRegister" value="Settings" /></Link>}
-                            {loggedIn && <Link to="/login"><input type="button" className="btn btnLogout" value="Logout" /></Link>}
+                            {loggedIn && <Link to="/"><input type="button" className="btn btnLogout" value="Logout" onClick={this.logout} /></Link>}
                         </div>
                     </Router>
                 </div>
@@ -53,6 +60,7 @@ function mapStateToProps(state) {
         loggedIn
     };
 }
+
 
 const header = connect(mapStateToProps)(Header);
 export { header as Header };
