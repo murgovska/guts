@@ -16,9 +16,18 @@
 .fa {
     color: $amethist;
     font-size: 3.5em;
+    text-shadow: 1px 1px 1.5px $jewel;
 }
 
-.fa:hover {
-    color: $topaz;
-    font-size: 4em;
+.categories {
+    box-shadow: 0 2px 2px -2px $amethist;
+    .categoryIcon {
+        color: $topaz;
+        font-size: 2.5em;
+        margin: 15px;
+
+        &:hover {
+            color: $amethist;
+        }
+}
 }

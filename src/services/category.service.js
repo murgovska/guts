@@ -1,13 +1,13 @@
-export const gameService = {
-    getGames
+export const categoryService = {
+    getCategories
 };
 
-function getGames() {
+function getCategories() {
     const requestOptions = {
         method: 'GET'
     };
 
-    return fetch('http://demo8841360.mockable.io/allGames', requestOptions).then(handleResponse);
+    return fetch('http://demo8841360.mockable.io/categories', requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

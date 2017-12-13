@@ -20,8 +20,9 @@ class Game extends React.Component {
         return (
             <div className="col-md-3">
             <div className="game text-center">
-              <p className="gameName">{this.props.item.gameName}</p>
-              <div><FontAwesome name='play-circle'/></div>
+                <div className="gameName">{this.props.item.gameName}</div>
+                <div><FontAwesome name='play-circle'/></div>
+                <div className="playText">Play for fun</div>
             </div>
             </div>
         );

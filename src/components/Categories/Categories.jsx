@@ -3,32 +3,28 @@ import { Router, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { gameActions } from '../../actions';
+import { categoryActions } from '../../actions';
 import { alertActions } from '../../actions';
-import { Game } from '../Games';
-import { Categories } from '../Categories';
+var FontAwesome = require('react-fontawesome');
 
-
-class CasinoContent extends React.Component {
+class Categories extends React.Component {
     constructor(props) {
         super(props);
         const { dispatch } = this.props;
-        dispatch(gameActions.getGames());
+        dispatch(categoryActions.getCategories());
     }
 
     render() {
-
-        if (this.props.state['games'].items !== undefined) {
-            var games = this.props.state['games'].items.map(function(item) {
+        if (this.props.state['categories'].items !== undefined) {
+            var categories = this.props.state['categories'].items.map(function(item) {
                 return (
-                  <Game key={item.gameId} item={item}/>
+                    <FontAwesome name={item.icon} className="categoryIcon"/>
                 );
               });
               return (
                 <div>
-                    <Categories />
-                    <div className="col-md-12 games">
-                        {games}
+                    <div className="col-md-12 categories text-right">
+                        {categories}
                     </div>
                 </div>
               );
@@ -47,5 +43,5 @@ function mapStateToProps(state) {
     };
 }
 
-const casinoContent = connect(mapStateToProps)(CasinoContent);
-export { casinoContent as CasinoContent };
+const categories = connect(mapStateToProps)(Categories);
+export { categories as Categories };

@@ -15,11 +15,20 @@
         padding: 10px 0px;
     }
 
+    .playText{
+        display: none;
+        color: $amethist;
+        text-shadow: 1px 1px 1.5px $jewel;
+    }
+
     &:hover{
         transform: scale3d(1.15,1.15,1.15);
-        .gameName{
+        .gameName {
             color: $topaz;
             text-shadow: 1px 1px 1.5px $topaz;
+        }
+        .playText {
+            display: inline;
         }
     }
 }
