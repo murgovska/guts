@@ -49,8 +49,7 @@ class SettingsPage extends React.Component {
                         <input type="text" className="form-control" name="username" value={user.username} onChange={this.handleChange} />
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary">Update</button>
-
+                        <button className="btn btnUpdate">Update</button>
                         <Link to="/casino" className="btn btn-link">Cancel</Link>
                     </div>
                 </form>
