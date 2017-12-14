@@ -2,7 +2,7 @@ import { categoryConstants } from '../constants';
 import { categoryService } from '../services';
 import { alertActions } from './';
 import { error } from 'util';
-import { categories } from '../reducers/categories.reducer';
+import { gameActions } from '../actions'
 
 export const categoryActions = {
     getCategories
@@ -17,6 +17,14 @@ function getCategories() {
                 categories => dispatch(success(categories)),
                 error => dispatch(failure(error))
             );
+
+        categoryService.getCategories()
+            .then(categories => dispatch(success(categories)))
+            .then(categories => {
+                dispatch(gameActions.getGames('allGames'));
+            })
+            .catch(error => dispatch(failure(error)));
+          
     };
 
     function request() { return { type: categoryConstants.GET_ALL_CATEGORIES_REQUEST } }

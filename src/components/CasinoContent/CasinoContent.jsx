@@ -13,7 +13,6 @@ class CasinoContent extends React.Component {
     constructor(props) {
         super(props);
         const { dispatch } = this.props;
-        // dispatch(gameActions.getGames());
     }
 
     render() {

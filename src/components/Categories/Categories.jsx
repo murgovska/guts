@@ -11,15 +11,22 @@ class Categories extends React.Component {
     constructor(props) {
         super(props);
         const { dispatch } = this.props;
+        this.getCategoryGames = this.getCategoryGames.bind(this);
         dispatch(categoryActions.getCategories());
-        console.log (this.state, 'State in categories, ***')
+        
+    }
+
+    getCategoryGames(api) {
+    // alert (api);
+        const { dispatch } = this.props;
+        dispatch(gameActions.getGames('mostPopular'));
     }
 
     render() {
         if (this.props.state['categories'].items !== undefined) {
             var categories = this.props.state['categories'].items.map(function(item) {
                 return (
-                    <FontAwesome key={item.categoryId} name={item.icon} className="categoryIcon" key={item.categoryId}/>
+                    <FontAwesome onClick={ () => this.getCategoryGames(this, item.api) } key={item.categoryId} name={item.icon} className="categoryIcon" key={item.categoryId}/>
                 );
               });
               return (

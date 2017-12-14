@@ -1,3 +1,5 @@
+import * as api from '../api.ts';
+
 export const categoryService = {
     getCategories
 };
@@ -7,7 +9,7 @@ function getCategories() {
         method: 'GET'
     };
 
-    return fetch('http://demo8841360.mockable.io/categories', requestOptions).then(handleResponse);
+    return fetch(api.categories, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

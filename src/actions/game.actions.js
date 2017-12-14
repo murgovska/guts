@@ -7,11 +7,11 @@ export const gameActions = {
     getGames
 };
 
-function getGames() {
+function getGames(gamesCategory) {
     return dispatch => {
         dispatch(request());
 
-        gameService.getGames()
+        gameService.getGames(gamesCategory)
             .then(
                 games => dispatch(success(games)),
                 error => dispatch(failure(error))
