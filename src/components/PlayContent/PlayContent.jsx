@@ -2,11 +2,10 @@ import React from 'react';
 import { Router, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-import { history } from '../../helpers';
+import { alertActions } from '../../actions';
 var FontAwesome = require('react-fontawesome');
 
-class Game extends React.Component {
+class PlayContent extends React.Component {
     constructor(props) {
         super(props);
         const { dispatch } = this.props;
@@ -14,12 +13,11 @@ class Game extends React.Component {
 
     render() {
         const { loggedIn } = this.props.state.authentication;
-
         return (
-            <div className="col-md-3">
-            <div className="game text-center">
-                <div className="gameName">{this.props.item.gameName}</div>
-                <Link to="/play"><div><FontAwesome name='play-circle'/></div></Link>
+            <div className="col-md-6 col-md-offset-3">
+            <div className="playGame text-center">
+                <div className="gameName">The name of the game</div>
+                <div><FontAwesome name='play-circle'/></div>
                 {loggedIn && <div className="playText">Play for real</div>}
                 {!loggedIn && <div className="playText">Play for fun</div>}
             </div>
@@ -34,5 +32,5 @@ function mapStateToProps(state) {
     };
 }
 
-const game = connect(mapStateToProps)(Game);
-export { game as Game };
+const playContent = connect(mapStateToProps)(PlayContent);
+export { playContent as PlayContent };

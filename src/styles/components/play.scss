@@ -1,0 +1,35 @@
+.playGame {
+    // background-image: url("/assets/orientExpress.png");
+    width: 100%;
+    height:450px;
+    margin: 50px auto;
+    // border: 1px solid $amethist;
+    margin-bottom: 15px;
+    -webkit-box-shadow: 2.5px 2.5px 5px 2.5px rgba(103,86,130,1);
+    -moz-box-shadow: 2.5px 2.5px 5px 2.5px rgba(103,86,130,1);
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(103,86,130,1);
+
+    .gameName {
+        color: $amethist;
+        text-shadow: 1px 1px 1.5px $jewel;
+        font-size: 1.25em;
+        padding: 10px 0px;
+    }
+
+    .playText{
+        display: none;
+        color: $amethist;
+        text-shadow: 1px 1px 1.5px $jewel;
+    }
+
+    &:hover{
+        transform: scale3d(1.15,1.15,1.15);
+        .gameName {
+            color: $topaz;
+            text-shadow: 1px 1px 1.5px $topaz;
+        }
+        .playText {
+            display: inline;
+        }
+    }
+}

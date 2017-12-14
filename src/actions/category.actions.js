@@ -14,9 +14,7 @@ function getCategories() {
 
         categoryService.getCategories()
             .then(categories => dispatch(success(categories)))
-            .then(categories => {
-                dispatch(gameActions.getGames('allGames'));
-            })
+            .then(dispatch(gameActions.getGames('allGames')))
             .catch(error => dispatch(failure(error)));
           
     };

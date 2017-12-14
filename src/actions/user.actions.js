@@ -21,7 +21,7 @@ function login(username, password) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push('/casino');
+                    history.push('/');
                 },
                 error => {
                     dispatch(failure(error));

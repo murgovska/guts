@@ -6,8 +6,8 @@ import { history } from '../../helpers';
 import { alertActions } from '../../actions';
 import { Header } from '../../components/Header';
 import { PrivateRoute } from '../../components/PrivateRoute';
-import { HomeContent } from '../../components/HomeContent';
 import { CasinoContent } from '../../components/CasinoContent';
+import { PlayContent } from '../../components/PlayContent';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import { SettingsPage } from '../SettingsPage';
@@ -30,8 +30,8 @@ class App extends React.Component {
             <Header />
             <Router history={history}>
             <div className="content">
-                <Route exact path="/casino" component={ CasinoContent } />
-                <Route exact path="/" component={ HomeContent } />
+                <Route exact path="/play" component={ PlayContent } />
+                <Route exact path="/" component={ CasinoContent } />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/register" component={RegisterPage} />
                 <Route path="/settings" component={SettingsPage} />
