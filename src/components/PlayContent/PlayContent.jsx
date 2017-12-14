@@ -13,16 +13,27 @@ class PlayContent extends React.Component {
 
     render() {
         const { loggedIn } = this.props.state.authentication;
-        return (
-            <div className="col-md-6 col-md-offset-3">
-            <div className="playGame text-center">
-                <div className="gameName">The name of the game</div>
-                <div><FontAwesome name='play-circle'/></div>
-                {loggedIn && <div className="playText">Play for real</div>}
-                {!loggedIn && <div className="playText">Play for fun</div>}
-            </div>
-            </div>
-        );
+        const { currentGame } = this.props.state.games;
+        if (currentGame) {
+            return (
+                <div className="col-md-6 col-md-offset-3">
+                    <div className="playGame text-center">
+                        <div className="gameName">{currentGame.gameName}</div>
+                        <div><FontAwesome name='play-circle' /></div>
+                        {loggedIn && <div className="playText">Play for real</div>}
+                        {!loggedIn && <div className="playText">Play for fun</div>}
+                    </div>
+                </div>
+            );
+        } else {
+            return (
+                <div className="col-md-6 col-md-offset-3">
+                    <div className="text-center">
+                        <Link to="/">Back to browser games</Link>
+                    </div>
+                </div>
+            );
+        }
     }
 }
 

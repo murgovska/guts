@@ -21,18 +21,18 @@ function handleResponse(response) {
     return response.json();
 }
 
-function checkGamesApi (gamesAPI) {
-    switch (gamesAPI) {
-        case 'allGames':
+function checkGamesApi (gameId) {
+    switch (gameId) {
+        case '1':
             return api.allGames;
 
-        case 'mostPopular':
+        case '2':
             return api.mostPopular;
 
-        case 'tableGames':
+        case '3':
             return api.tableGames;
 
-        case 'slotMachines':
+        case '4':
             return api.slotMachines;
 
         default: 

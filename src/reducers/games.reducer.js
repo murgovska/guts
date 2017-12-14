@@ -10,6 +10,10 @@ export function games(state = {}, action) {
       return {
         items: action.games
       };
+    case gameConstants.SET_CURRENT_GAME:
+      return {
+        currentGame: action.game
+      };
     case gameConstants.GET_ALL_GAMES_FAILURE:
       return {
         error: action.error

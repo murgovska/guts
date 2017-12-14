@@ -3,8 +3,7 @@ import { Router, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { categoryActions } from '../../actions';
-import { alertActions } from '../../actions';
+import { alertActions, categoryActions, gameActions } from '../../actions';
 var FontAwesome = require('react-fontawesome');
 
 class Categories extends React.Component {
@@ -13,22 +12,20 @@ class Categories extends React.Component {
         const { dispatch } = this.props;
         this.getCategoryGames = this.getCategoryGames.bind(this);
         dispatch(categoryActions.getCategories());
-        
     }
 
-    getCategoryGames(api) {
-    // alert (api);
+    getCategoryGames(categoryId) {
         const { dispatch } = this.props;
-        dispatch(gameActions.getGames('mostPopular'));
+        dispatch(gameActions.getGames(categoryId));
     }
 
     render() {
         if (this.props.state['categories'].items !== undefined) {
             var categories = this.props.state['categories'].items.map(function(item) {
                 return (
-                    <FontAwesome onClick={ () => this.getCategoryGames(item.categoryId) } key={item.categoryId} name={item.icon} className="categoryIcon" key={item.categoryId}/>
+                    <FontAwesome onClick={ () => this.getCategoryGames(item.categoryId) } key={item.categoryId} name={item.icon} className="categoryIcon" title={item.categoryName}/>
                 );
-              });
+              }, this);
               return (
                 <div>
                     <div className="col-md-12 categories text-right">

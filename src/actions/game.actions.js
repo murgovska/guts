@@ -4,7 +4,8 @@ import { alertActions } from './';
 import { error } from 'util';
 
 export const gameActions = {
-    getGames
+    getGames,
+    setCurrentGame
 };
 
 function getGames(gamesCategory) {
@@ -13,12 +14,20 @@ function getGames(gamesCategory) {
 
         gameService.getGames(gamesCategory)
             .then(
-                games => dispatch(success(games)),
-                error => dispatch(failure(error))
+            games => dispatch(success(games)),
+            error => dispatch(failure(error))
             );
     };
 
     function request() { return { type: gameConstants.GET_ALL_GAMES_REQUEST } }
     function success(games) { return { type: gameConstants.GET_ALL_GAMES_SUCCESS, games } }
     function failure(error) { return { type: gameConstants.GET_ALL_GAMES_FAILURE, error } }
+}
+
+function setCurrentGame(game) {
+    return dispatch => {
+        dispatch(request());
+    }
+
+    function request() { return { type: gameConstants.SET_CURRENT_GAME, game } }
 }
