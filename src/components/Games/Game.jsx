@@ -10,19 +10,18 @@ class Game extends React.Component {
     constructor(props) {
         super(props);
         const { dispatch } = this.props;
-        history.listen((location, action) => {
-            // clear alert on location change
-            // dispatch(alertActions.clear());
-        });
     }
 
     render() {
+        const { loggedIn } = this.props.state.authentication;
+
         return (
             <div className="col-md-3">
             <div className="game text-center">
                 <div className="gameName">{this.props.item.gameName}</div>
                 <div><FontAwesome name='play-circle'/></div>
-                <div className="playText">Play for fun</div>
+                {loggedIn && <div className="playText">Play for real</div>}
+                {!loggedIn && <div className="playText">Play for fun</div>}
             </div>
             </div>
         );

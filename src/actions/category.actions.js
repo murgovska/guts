@@ -13,12 +13,6 @@ function getCategories() {
         dispatch(request());
 
         categoryService.getCategories()
-            .then(
-                categories => dispatch(success(categories)),
-                error => dispatch(failure(error))
-            );
-
-        categoryService.getCategories()
             .then(categories => dispatch(success(categories)))
             .then(categories => {
                 dispatch(gameActions.getGames('allGames'));
