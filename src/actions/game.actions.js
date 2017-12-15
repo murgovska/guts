@@ -8,19 +8,22 @@ export const gameActions = {
     setCurrentGame
 };
 
-function getGames(gamesCategory) {
+function getGames(selectedCategory) {
     return dispatch => {
         dispatch(request());
 
-        gameService.getGames(gamesCategory)
+        gameService.getGames(selectedCategory)
             .then(
-            games => dispatch(success(games)),
+            games => dispatch(success(games, selectedCategory)),
             error => dispatch(failure(error))
             );
     };
 
     function request() { return { type: gameConstants.GET_ALL_GAMES_REQUEST } }
-    function success(games) { return { type: gameConstants.GET_ALL_GAMES_SUCCESS, games } }
+    function success(games, selectedCategory) { 
+        localStorage.setItem('selectedCategory', selectedCategory);
+        return { type: gameConstants.GET_ALL_GAMES_SUCCESS, games, selectedCategory }
+    }
     function failure(error) { return { type: gameConstants.GET_ALL_GAMES_FAILURE, error } }
 }
 
@@ -30,6 +33,9 @@ function setCurrentGame(game) {
     }
 
     function request(game) {
-        return { type: gameConstants.SET_CURRENT_GAME, game }
+        localStorage.setItem('currentGame', JSON.stringify(game));
+        return { 
+            type: gameConstants.SET_CURRENT_GAME, game
+         }
     }
 }

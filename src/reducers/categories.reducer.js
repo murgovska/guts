@@ -1,6 +1,9 @@
 import { categoryConstants } from '../constants';
 
-export function categories(state = {}, action) {
+let selectedCategory = localStorage.getItem('selectedCategory');
+const initialState = selectedCategory ? selectedCategory : '1';
+
+export function categories(state = initialState, action) {
   switch (action.type) {
     case categoryConstants.GET_ALL_CATEGORIES_REQUEST:
     return {
@@ -9,7 +12,7 @@ export function categories(state = {}, action) {
     case categoryConstants.GET_ALL_CATEGORIES_SUCCESS:
       return {
         items: action.categories,
-        selectedCategory: 'allCategories'
+        selectedCategory: selectedCategory
       };
     case categoryConstants.GET_ALL_CATEGORIES_FAILURE:
       return {
