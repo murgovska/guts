@@ -20,10 +20,11 @@ class Categories extends React.Component {
     }
 
     render() {
+        console.log (this.props.state.categories['selectedCategory'], 'test');
         if (this.props.state['categories'].items !== undefined) {
             var categories = this.props.state['categories'].items.map(function(item) {
                 return (
-                    <FontAwesome onClick={ () => this.getCategoryGames(item.categoryId) } key={item.categoryId} name={item.icon} className="categoryIcon" title={item.categoryName}/>
+                    <FontAwesome onClick={ () => this.getCategoryGames(item.categoryId) } key={item.categoryId} name={item.icon} className={"categoryIcon " + (this.props.state.categories['selectedCategory']==item.categoryId ? 'selected' : '')} title={item.categoryName}/>
                 );
               }, this);
               return (

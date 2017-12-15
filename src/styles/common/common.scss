@@ -30,5 +30,8 @@
         &:hover {
             color: $amethist;
         }
-}
+    }
+    .selected {
+        color: $rose!important;
+    }
 }

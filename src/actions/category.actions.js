@@ -15,13 +15,13 @@ function getCategories() {
         dispatch(request());
 
         categoryService.getCategories()
-            .then(categories => dispatch(success(categories)))
+            .then(categories => dispatch(success(categories, selectedCategory)))
             .then(dispatch(gameActions.getGames(selectedCategory)))
             .catch(error => dispatch(failure(error)));
           
     };
 
     function request() { return { type: categoryConstants.GET_ALL_CATEGORIES_REQUEST } }
-    function success(categories) { return { type: categoryConstants.GET_ALL_CATEGORIES_SUCCESS, categories } }
+    function success(categories, selectedCategory) { return { type: categoryConstants.GET_ALL_CATEGORIES_SUCCESS, categories, selectedCategory } }
     function failure(error) { return { type: categoryConstants.GET_ALL_CATEGORIES_FAILURE, error } }
 }
