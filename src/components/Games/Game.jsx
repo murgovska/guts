@@ -25,7 +25,7 @@ class Game extends React.Component {
 
         return (
             <div className="col-md-3">
-            <div className="game text-center">
+            <div className={"game text-center game-"+this.props.item.gameName.toLowerCase().replace(/ /g,'')}>
                 <div className="gameName">{this.props.item.gameName}</div>
                 <Link to="/play" onClick={this.selectCurrentGame}><div><FontAwesome name='play-circle'/></div></Link>
                 {loggedIn && <div className="playText">Play for real</div>}
