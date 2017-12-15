@@ -26,8 +26,10 @@ function getGames(gamesCategory) {
 
 function setCurrentGame(game) {
     return dispatch => {
-        dispatch(request());
+        dispatch(request(game));
     }
 
-    function request() { return { type: gameConstants.SET_CURRENT_GAME, game } }
+    function request(game) {
+        return { type: gameConstants.SET_CURRENT_GAME, game }
+    }
 }

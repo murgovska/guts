@@ -1,6 +1,9 @@
 import { gameConstants } from '../constants';
 
-export function games(state = {}, action) {
+let currentGame = JSON.parse(localStorage.getItem('currentGame'));
+const initialState = currentGame ? {"currentGame": currentGame} : {};
+
+export function games(state = initialState, action) {
   switch (action.type) {
     case gameConstants.GET_ALL_GAMES_REQUEST:
     return {

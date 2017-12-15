@@ -9,7 +9,6 @@ class Button extends React.Component {
 
     constructor(props){
         super(props);
-        console.log (props, '***');
     }
 
     render() {
@@ -20,7 +19,6 @@ class Button extends React.Component {
 }
 
 function mapStateToProps(state) {
-    console.log (state, '*** State ***')
     const { buttonState } = {'Test':'test'};
     return {
         buttonState

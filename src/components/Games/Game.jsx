@@ -16,7 +16,6 @@ class Game extends React.Component {
     }
 
     selectCurrentGame() {
-        console.log(this.props.item);
         const { dispatch } = this.props;
         dispatch(gameActions.setCurrentGame(this.props.item));
     }
