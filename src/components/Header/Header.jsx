@@ -35,7 +35,7 @@ class Header extends React.Component {
                     </Router>
                     <Router history={history}>
                         <div className="col-md-6 text-right col-sm-8 col-xs-12">
-                            {user && user.username && <span className="username">Welcome,  {user.username}!</span>}
+                            {loggedIn && user && user.username && <span className="username">Welcome,  {user.username}!</span>}
                             <Link to="/"><input type="button" className="btn btnGameBrowser" value="Game browser" /></Link>
                             {!loggedIn && <Link to="/login"> <input type="button" className="btn btnLogin" value="Log in" /></Link>}
                             {!loggedIn && <Link to="/register"><input type="button" className="btn btnRegister" value="Register" /></Link>}
