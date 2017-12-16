@@ -5,13 +5,14 @@ module.exports = function (config) {
     files: [
       'webpack.tests.js'
     ],
-    frameworks: [ 'chai', 'mocha' ],
+    frameworks: [ 'chai', 'mocha', 'jasmine' ],
     plugins: [
       'karma-chrome-launcher',
       'karma-chai',
       'karma-mocha',
       'karma-sourcemap-loader',
       'karma-webpack',
+      'karma-jasmine'
     ],
     // run the bundle through the webpack and sourcemap plugins
     preprocessors: {
@@ -30,7 +31,10 @@ module.exports = function (config) {
             test: /\.jsx?$/
           }
         ],
-      }
+      },
+      resolve: {
+        extensions: ['.js', '.jsx']
+      },
     },
     webpackMiddleware: {
       noInfo: true,
