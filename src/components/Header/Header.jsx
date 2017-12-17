@@ -7,7 +7,7 @@ import { userActions } from '../../actions';
 import { alertActions } from '../../actions';
 import { history } from '../../helpers';
 
-class Header extends React.Component {
+export class HeaderComponent extends React.Component {
     constructor(props) {
         super(props);
         const { dispatch } = this.props;
@@ -62,5 +62,5 @@ function mapStateToProps(state) {
 }
 
 
-const header = connect(mapStateToProps)(Header);
+const header = connect(mapStateToProps)(HeaderComponent);
 export { header as Header };

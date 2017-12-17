@@ -1,7 +1,7 @@
 import { gameConstants } from '../constants';
 
 let currentGame = JSON.parse(localStorage.getItem('currentGame'));
-const initialState = currentGame ? {"currentGame": currentGame} : {};
+export const initialState = currentGame ? {"currentGame": currentGame} : {};
 
 export function games(state = initialState, action) {
   switch (action.type) {

@@ -38,6 +38,7 @@ module.exports = function (config) {
     },
     webpackMiddleware: {
       noInfo: true,
-    }
+    },
+    browserNoActivityTimeout : 210000
   });
 };
